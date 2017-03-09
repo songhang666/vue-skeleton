@@ -4,13 +4,30 @@
     <header class="header" :class="{ 'header-fixed' : headerFixed }">
     <el-row>
         <el-col :span="24">
-          <el-menu default-active="5" class="el-menu-demo" mode="horizontal" @select="">
-            <el-menu-item index="1">高级插件</el-menu-item>
-            <el-menu-item index="2">在线商城</el-menu-item>
-            <el-menu-item index="3">客户管理</el-menu-item>
-            <el-menu-item index="4">系统设置</el-menu-item>
-            <el-menu-item index="5">活动发布</el-menu-item>
+          <el-menu theme="dark" class="el-menu-demo" mode="horizontal" @select="">
+            <el-menu-item index="1">处理中心</el-menu-item>
+            <el-submenu index="2">
+              <template slot="title">我的工作台</template>
+              <el-menu-item index="2-1">选项1</el-menu-item>
+              <el-menu-item index="2-2">选项2</el-menu-item>
+              <el-menu-item index="2-3">选项3</el-menu-item>
+            </el-submenu>
+            <el-menu-item index="3">订单管理</el-menu-item>
+
+            <el-submenu index="4">
+              <template slot="title">控制塔</template>
+              <el-menu-item index="4-1">选项1</el-menu-item>
+              <el-menu-item index="4-2">选项2</el-menu-item>
+              <el-menu-item index="4-3">选项3</el-menu-item>
+              <el-menu-item index="4-4">选项4</el-menu-item>
+            </el-submenu>
+
+            <el-menu-item index="5">活动管理</el-menu-item>
+            <el-menu-item index="6">切换主题</el-menu-item>
+
           </el-menu>
+
+
         </el-col>
     </el-row>
     </header>
@@ -19,10 +36,63 @@
     <main>
           <!-- 左侧导航 -->
         <div class="main-left">
-          <el-menu default-active="/activePublic" class="el-menu-vertical-demo" :router="true">
-            <el-menu-item index="/activePublic" :class="{'isActive': active}">活动发布</el-menu-item>
-            <el-menu-item index="/activeManage" :class="{'isActive': !active}">活动管理</el-menu-item>
+          <el-row class="tac">
+            <el-col :span="24">
+          <el-menu default-active="/activePublic" class="el-menu-vertical-demo" @open="" @close="" theme="dark" unique-opened  :router="true">
+            <el-submenu index="1">
+              <template slot="title"><i class="el-icon-message"></i>导航一</template>
+              <el-menu-item-group>
+                <template slot="title">分组一</template>
+                <el-menu-item index="/activePublic" :class="{'isActive': active}">选项1</el-menu-item>
+                <el-menu-item index="/activeManage" :class="{'isActive': !active}">选项2</el-menu-item>
+              </el-menu-item-group>
+              <el-menu-item-group title="分组2">
+                <el-menu-item index="1-3">选项3</el-menu-item>
+              </el-menu-item-group>
+              <el-submenu index="1-4">
+                <template slot="title">选项4</template>
+                <el-menu-item index="1-4-1">选项1</el-menu-item>
+              </el-submenu>
+            </el-submenu>
+            <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
+            <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+            <el-submenu index="4">
+              <template slot="title"><i class="el-icon-share"></i>导航四</template>
+              <el-menu-item-group>
+                <template slot="title">分组一</template>
+                <el-menu-item index="4-1">选项1</el-menu-item>
+                <el-menu-item index="4-2">选项2</el-menu-item>
+              </el-menu-item-group>
+              <el-menu-item-group title="分组2">
+                <el-menu-item index="4-3">选项3</el-menu-item>
+              </el-menu-item-group>
+              <el-submenu index="4-4">
+                <template slot="title">选项4</template>
+                <el-menu-item index="4-4-1">选项1</el-menu-item>
+              </el-submenu>
+            </el-submenu>
+            <el-submenu index="5">
+              <template slot="title"><i class="el-icon-setting"></i>导航五</template>
+              <el-menu-item-group>
+                <template slot="title">分组一</template>
+                <el-menu-item index="5-1">选项1</el-menu-item>
+                <el-menu-item index="5-2">选项2</el-menu-item>
+              </el-menu-item-group>
+              <el-menu-item-group title="分组2">
+                <el-menu-item index="5-3">选项3</el-menu-item>
+              </el-menu-item-group>
+              <el-submenu index="5-4">
+                <template slot="title">选项4</template>
+                <el-menu-item index="5-4-1">选项1</el-menu-item>
+              </el-submenu>
+            </el-submenu>
           </el-menu>
+            </el-col>
+          </el-row>
+          <!--<el-menu default-active="/activePublic" class="el-menu-vertical-demo" :router="true">-->
+            <!--<el-menu-item index="/activePublic" :class="{'isActive': active}">活动发布</el-menu-item>-->
+            <!--<el-menu-item index="/activeManage" :class="{'isActive': !active}">活动管理</el-menu-item>-->
+          <!--</el-menu>-->
         </div>
 
           <!-- 右侧主内容区 -->
